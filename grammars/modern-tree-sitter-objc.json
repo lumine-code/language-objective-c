@@ -1,0 +1,19 @@
+{
+  "name": "OBJC",
+  "scopeName": "source.objc",
+  "type": "modern-tree-sitter",
+  "parser": "tree-sitter-objc",
+  "injectionRegex": "^(objc|objective-c)$",
+  "fileTypes": ["m", "h", "pch", "x", "xm", "xmi"],
+  "comments": {
+    "start": "// "
+  },
+  "treeSitter": {
+    "parserSource": "github:amaanq/tree-sitter-objc#v3.0.2",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.11",
+    "grammar": "tree-sitter-objc/tree-sitter-objc.wasm",
+    "highlightsQuery": "tree-sitter-objc/highlights.scm",
+    "localsQuery": "tree-sitter-objc/locals.scm",
+    "foldsQuery": "tree-sitter-objc/folds.scm"
+  }
+}
