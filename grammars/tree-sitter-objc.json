@@ -1,7 +1,7 @@
 {
   "name": "OBJC",
   "scopeName": "source.objc",
-  "type": "modern-tree-sitter",
+  "type": "tree-sitter",
   "parser": "tree-sitter-objc",
   "injectionRegex": "^(objc|objective-c)$",
   "contentRegex": "^\\s*(#import|#include|@interface|@implementation|@property)",
