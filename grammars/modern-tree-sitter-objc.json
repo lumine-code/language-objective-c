@@ -4,7 +4,15 @@
   "type": "modern-tree-sitter",
   "parser": "tree-sitter-objc",
   "injectionRegex": "^(objc|objective-c)$",
-  "fileTypes": ["m", "h", "pch", "x", "xm", "xmi"],
+  "contentRegex": "^\\s*(#import|#include|@interface|@implementation|@property)",
+  "fileTypes": [
+    "m",
+    "h",
+    "pch",
+    "x",
+    "xm",
+    "xmi"
+  ],
   "comments": {
     "start": "// "
   },
