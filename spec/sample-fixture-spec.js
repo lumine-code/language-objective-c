@@ -7,13 +7,13 @@ const path = require("path");
 
 describe("Objective-C sample fixtures", () => {
   beforeEach(async () => {
-    await atom.packages.activatePackage("language-c");
-    await atom.packages.activatePackage("language-objective-c");
-    atom.config.set("language.useTreeSitterParsers", true);
+    await lumine.packages.activatePackage("language-c");
+    await lumine.packages.activatePackage("language-objective-c");
+    lumine.config.set("language.useTreeSitterParsers", true);
   });
 
   it("parses sample.m without error", async () => {
-    const editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.m"));
+    const editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.m"));
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 

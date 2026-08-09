@@ -5,14 +5,14 @@ describe("Language-Objective-C", () => {
     // This suite tests the TextMate grammar. Once the package also ships a
     // Tree-sitter one, grammarForScopeName returns that instead under the
     // default setting, and every tokenizeLine assertion below would break.
-    atom.config.set("language.useTreeSitterParsers", false);
-    waitsForPromise(() => atom.packages.activatePackage("language-objective-c"));
+    lumine.config.set("language.useTreeSitterParsers", false);
+    waitsForPromise(() => lumine.packages.activatePackage("language-objective-c"));
 
-    waitsForPromise(() => atom.packages.activatePackage("language-c"));
+    waitsForPromise(() => lumine.packages.activatePackage("language-c"));
   });
 
   describe("Objective-C", () => {
-    beforeEach(() => (grammar = atom.grammars.grammarForScopeName("source.objc")));
+    beforeEach(() => (grammar = lumine.grammars.grammarForScopeName("source.objc")));
 
     it("parses the grammar", () => {
       expect(grammar).toBeTruthy();
@@ -38,7 +38,7 @@ describe("Language-Objective-C", () => {
   });
 
   describe("Objective-C++", () => {
-    beforeEach(() => (grammar = atom.grammars.grammarForScopeName("source.objcpp")));
+    beforeEach(() => (grammar = lumine.grammars.grammarForScopeName("source.objcpp")));
 
     it("parses the grammar", () => {
       expect(grammar).toBeTruthy();
