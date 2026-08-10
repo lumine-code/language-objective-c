@@ -1,14 +1,14 @@
 describe("Language-Objective-C", () => {
   let grammar = null;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     // This suite tests the TextMate grammar. Once the package also ships a
     // Tree-sitter one, grammarForScopeName returns that instead under the
     // default setting, and every tokenizeLine assertion below would break.
     lumine.config.set("language.useTreeSitterParsers", false);
-    waitsForPromise(() => lumine.packages.activatePackage("language-objective-c"));
+    await lumine.packages.activatePackage("language-objective-c");
 
-    waitsForPromise(() => lumine.packages.activatePackage("language-c"));
+    await lumine.packages.activatePackage("language-c");
   });
 
   describe("Objective-C", () => {
