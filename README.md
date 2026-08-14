@@ -10,7 +10,7 @@ Objective-C language support.
 
 ## Installation
 
-To install `language-objective-c` search for _language-objective-c_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-objective-c`.
+To install `language-objective-c` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/language-objective-c`.
 
 ## Contributing
 
