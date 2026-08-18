@@ -4,7 +4,7 @@ Objective-C language support.
 
 ## Features
 
-- **Grammars**: provides TextMate grammars derived from [atom/language-objective-c](https://github.com/atom/language-objective-c).
+- **Grammars**: provides Tree-sitter grammars built from [tree-sitter-objc](https://github.com/amaanq/tree-sitter-objc) and TextMate grammars derived from [atom/language-objective-c](https://github.com/atom/language-objective-c).
 - **Syntax highlighting**: full grammar coverage for Objective-C files.
 - **Snippets**: shortcuts for common declarations and control structures.
 
