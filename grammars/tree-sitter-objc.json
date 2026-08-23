@@ -11,7 +11,7 @@
   },
   "treeSitter": {
     "parserSource": "github:amaanq/tree-sitter-objc#v3.0.2",
-    "wasmBuildTool": "tree-sitter-cli#v0.26.11",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
     "grammar": "tree-sitter-objc/tree-sitter-objc.wasm",
     "highlightsQuery": "tree-sitter-objc/highlights.scm",
     "localsQuery": "tree-sitter-objc/locals.scm",
