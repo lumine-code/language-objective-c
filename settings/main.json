@@ -1,6 +1,6 @@
 {
   ".source.objc, .source.objcpp": {
-    "language": {
+    "editor": {
       "completions": [
         "retain",
         "release",
@@ -37,7 +37,7 @@
   },
   // Comment settings are specified in the `language-c` package.
   ".source.objcpp, .source.objc": {
-    "language": {
+    "editor": {
       "foldEndPattern": "(?<!\\*)\\*\\*/|^\\s*\\}|^@end\\b"
     }
   }
