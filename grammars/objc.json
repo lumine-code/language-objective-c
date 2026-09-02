@@ -3,7 +3,7 @@
   "scopeName": "source.objc",
   "type": "tree-sitter",
   "parser": "tree-sitter-objc",
-  "injectionRegex": "^(objc|objective-c)$",
+  "injectionNames": ["objc", "objective-c"],
   "contentRegex": "^\\s*(#import|#include|@interface|@implementation|@property)",
   "fileTypes": ["m", "h", "pch", "x", "xm", "xmi"],
   "comments": {
@@ -12,9 +12,9 @@
   "treeSitter": {
     "parserSource": "github:amaanq/tree-sitter-objc#v3.0.2",
     "wasmBuildTool": "tree-sitter-cli#v0.26.13",
-    "grammar": "tree-sitter-objc/tree-sitter-objc.wasm",
-    "highlightsQuery": "tree-sitter-objc/highlights.scm",
-    "localsQuery": "tree-sitter-objc/locals.scm",
-    "foldsQuery": "tree-sitter-objc/folds.scm"
+    "grammar": "objc.wasm",
+    "highlightsQuery": "objc-highlights.scm",
+    "localsQuery": "objc-locals.scm",
+    "foldsQuery": "objc-folds.scm"
   }
 }

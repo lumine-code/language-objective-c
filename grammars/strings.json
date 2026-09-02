@@ -1,0 +1,16 @@
+{
+  "name": "Strings File",
+  "scopeName": "source.strings",
+  "type": "tree-sitter",
+  "parser": "tree-sitter-strings",
+  "fileTypes": ["strings"],
+  "comments": {
+    "start": "// "
+  },
+  "treeSitter": {
+    "parserSource": "github:uber/tree-sitter-strings#e368aceffde903b68f2ee84607967e5619a633aa",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "grammar": "strings.wasm",
+    "highlightsQuery": "strings-highlights.scm"
+  }
+}

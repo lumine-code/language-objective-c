@@ -9,7 +9,8 @@
     "cocoa",
     "ios",
     "macos",
-    "mm"
+    "mm",
+    "tree-sitter"
   ],
   "engines": {
     "lumine": "^1.0.0",

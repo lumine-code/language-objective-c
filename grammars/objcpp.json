@@ -1,0 +1,19 @@
+{
+  "name": "Objective-C++",
+  "scopeName": "source.objcpp",
+  "type": "tree-sitter",
+  "parser": "tree-sitter-objcpp",
+  "injectionNames": ["objective-c++", "objcpp"],
+  "contentRegex": "^\\s*(?:#import|#include|@interface|@implementation|@property)",
+  "fileTypes": ["mm"],
+  "comments": {
+    "start": "// "
+  },
+  "treeSitter": {
+    "parserSource": "github:VladimirMakaev/tree-sitter-objcpp#eeef22e310ea16e2156a398190e7a326341950f8",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "grammar": "objcpp.wasm",
+    "highlightsQuery": "objcpp-highlights.scm",
+    "tagsQuery": "objcpp-tags.scm"
+  }
+}
