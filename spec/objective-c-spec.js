@@ -1,4 +1,9 @@
+const fs = require("fs");
 const path = require("path");
+const { Point } = require("lumine");
+
+const OBJC_HIGHLIGHTS_PATH = path.join(__dirname, "..", "grammars", "objc-highlights.scm");
+const OBJCPP_HIGHLIGHTS_PATH = path.join(__dirname, "..", "grammars", "objcpp-highlights.scm");
 
 describe("Objective-C Tree-sitter grammars", () => {
   beforeEach(async () => {
@@ -35,5 +40,46 @@ describe("Objective-C Tree-sitter grammars", () => {
     expect(editor.scopeDescriptorForBufferPosition([1, 19]).getScopesArray()).toContain(
       "string.quoted.double.strings",
     );
+  });
+
+  it("keeps protocol references local inside a 6000-protocol list", async () => {
+    for (const queryPath of [OBJC_HIGHLIGHTS_PATH, OBJCPP_HIGHLIGHTS_PATH]) {
+      const query = fs.readFileSync(queryPath, "utf8");
+      expect(query).not.toMatch(/\(protocol_reference_list\s+\(identifier\)/);
+      expect(query).toContain("(#is? test.childOfType protocol_reference_list)");
+    }
+
+    const editor = await lumine.workspace.open("protocol-locality.m");
+    const lines = [
+      "@protocol Formatter <NSObject,",
+      ...Array.from(
+        { length: 6000 },
+        (_, index) => `  Protocol${index}${index === 5999 ? "" : ","}`,
+      ),
+      ">",
+      "@end",
+    ];
+    editor.setText(lines.join("\r\n"));
+    const languageMode = editor.getBuffer().languageMode;
+    await languageMode.ready;
+    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    const protocolColumn = editor.lineTextForBufferRow(1).indexOf("Protocol0");
+    expect(editor.scopeDescriptorForBufferPosition([1, protocolColumn]).getScopesArray()).toContain(
+      "support.type.objc",
+    );
+
+    const startRow = 2998;
+    const endRow = startRow + 6;
+    const layer = languageMode.rootLanguageLayer;
+    const captures = layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+      startPosition: new Point(startRow, 0),
+      endPosition: new Point(endRow, 0),
+    });
+    expect(captures.length).toBeLessThanOrEqual(48);
+    expect(
+      captures
+        .filter(({ name }) => name === "support.type.objc")
+        .every(({ node }) => node.startPosition.row >= startRow && node.startPosition.row < endRow),
+    ).toBe(true);
   });
 });

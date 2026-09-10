@@ -76,8 +76,8 @@
 (protocol_forward_declaration
   (identifier) @entity.name.type.protocol.objcpp)
 
-(protocol_reference_list
-  (identifier) @entity.name.type.protocol.objcpp)
+((identifier) @entity.name.type.protocol.objcpp
+  (#is? test.childOfType protocol_reference_list))
 
 (class_interface
   (identifier) @entity.name.type.class.objcpp)

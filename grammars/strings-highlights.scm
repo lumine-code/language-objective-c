@@ -1,5 +1,6 @@
 (block_comment) @comment.block.strings
-(line_comment) @comment.line.double-slash.strings
+((line_comment) @comment.line.double-slash.strings
+  (#set! adjust.endBeforeFirstMatchOf "\\r?$"))
 
 ((block_comment) @punctuation.definition.comment.begin.strings
   (#set! adjust.startAndEndAroundFirstMatchOf "^/\\*"))

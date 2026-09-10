@@ -160,7 +160,8 @@
 
 (protocol_forward_declaration (identifier) @support.type.objc) ; @interface :(
 
-(protocol_reference_list (identifier) @support.type.objc) ; ^
+((identifier) @support.type.objc
+  (#is? test.childOfType protocol_reference_list)) ; ^
 
 [
   "BOOL"
