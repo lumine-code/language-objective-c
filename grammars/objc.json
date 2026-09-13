@@ -3,7 +3,7 @@
   "scopeName": "source.objc",
   "type": "tree-sitter",
   "parser": "tree-sitter-objc",
-  "injectionNames": ["objc", "objective-c"],
+  "injectionNames": ["objc", "obj-c", "objective-c", "objectivec"],
   "contentRegex": "^\\s*(#import|#include|@interface|@implementation|@property)",
   "fileTypes": ["m", "h", "pch", "x", "xm", "xmi"],
   "comments": {

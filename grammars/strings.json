@@ -3,6 +3,7 @@
   "scopeName": "source.strings",
   "type": "tree-sitter",
   "parser": "tree-sitter-strings",
+  // Root-only: `strings` is too generic to be an unambiguous language name.
   "fileTypes": ["strings"],
   "comments": {
     "start": "// "
