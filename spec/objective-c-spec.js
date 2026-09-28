@@ -19,10 +19,9 @@ describe("Objective-C Tree-sitter grammars", () => {
 
   it("parses Objective-C++ and scopes Objective-C declarations", async () => {
     const editor = await openFixture("sample.mm");
-    const languageMode = editor.getBuffer().getLanguageMode();
 
     expect(editor.getGrammar().scopeName).toBe("source.objcpp");
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
 
     const scopes = editor.scopeDescriptorForBufferPosition([7, 11]).getScopesArray();
     expect(scopes).toContain("entity.name.type.class.objcpp");
@@ -30,10 +29,9 @@ describe("Objective-C Tree-sitter grammars", () => {
 
   it("parses Strings files and distinguishes keys from values", async () => {
     const editor = await openFixture("sample.strings");
-    const languageMode = editor.getBuffer().getLanguageMode();
 
     expect(editor.getGrammar().scopeName).toBe("source.strings");
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
     expect(editor.scopeDescriptorForBufferPosition([1, 2]).getScopesArray()).toContain(
       "constant.other.key.strings",
     );
@@ -62,7 +60,7 @@ describe("Objective-C Tree-sitter grammars", () => {
     editor.setText(lines.join("\r\n"));
     const languageMode = editor.getBuffer().languageMode;
     await languageMode.ready;
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
     const protocolColumn = editor.lineTextForBufferRow(1).indexOf("Protocol0");
     expect(editor.scopeDescriptorForBufferPosition([1, protocolColumn]).getScopesArray()).toContain(
       "support.type.objc",
@@ -70,11 +68,11 @@ describe("Objective-C Tree-sitter grammars", () => {
 
     const startRow = 2998;
     const endRow = startRow + 6;
-    const layer = languageMode.rootLanguageLayer;
-    const captures = layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
       startPosition: new Point(startRow, 0),
       endPosition: new Point(endRow, 0),
     });
+    const captures = groups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
     expect(captures.length).toBeLessThanOrEqual(48);
     expect(
       captures
