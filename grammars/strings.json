@@ -12,6 +12,7 @@
     "parserSource": "github:uber/tree-sitter-strings#e368aceffde903b68f2ee84607967e5619a633aa",
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "strings.wasm",
-    "highlightsQuery": "strings-highlights.scm"
+    "highlightsQuery": "strings-highlights.scm",
+    "tagsQuery": "strings-tags.scm"
   }
 }

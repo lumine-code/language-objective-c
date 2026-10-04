@@ -1,0 +1,83 @@
+{
+  "source.objc": {
+    "text": "typedef struct Point { int x; } Point;\n@protocol Display\n- (void)render;\n@end\n@interface Widget : NSObject\n@property int count;\n- (void)greet;\n- (void)setName:(id)name;\n@end\n@implementation Widget\n- (void)greet {}\n@end\nint compute(void) { return 1; }\n// @interface Phantom\n",
+    "symbols": [
+      {
+        "name": "Point",
+        "tag": "type"
+      },
+      {
+        "name": "Display",
+        "tag": "interface"
+      },
+      {
+        "name": "render",
+        "tag": "method"
+      },
+      {
+        "name": "Widget",
+        "tag": "class"
+      },
+      {
+        "name": "count",
+        "tag": "property"
+      },
+      {
+        "name": "greet",
+        "tag": "method"
+      },
+      {
+        "name": "setName",
+        "tag": "method"
+      },
+      {
+        "name": "compute",
+        "tag": "function"
+      }
+    ],
+    "absent": ["Phantom"]
+  },
+  "source.strings": {
+    "text": "\"welcome\" = \"Hello\";\n\"farewell\" = \"Goodbye\";",
+    "symbols": [
+      {
+        "name": "welcome",
+        "tag": "property",
+        "captureText": "\"welcome\""
+      },
+      {
+        "name": "farewell",
+        "tag": "property",
+        "captureText": "\"farewell\""
+      }
+    ],
+    "absent": ["Hello", "Goodbye"],
+    "only": true
+  },
+  "source.objcpp": {
+    "text": "typedef struct Point { int x; } Point;\n@protocol Display\n- (void)render;\n@end\n@interface Widget : NSObject\n@property int count;\n- (void)greet;\n- (void)setName:(id)name;\n@end\n@implementation Widget\n- (void)greet {}\n@end\nint compute(void) { return 1; }\n// @interface Phantom\n",
+    "symbols": [
+      {
+        "name": "Widget",
+        "tag": "class"
+      },
+      {
+        "name": "Display",
+        "tag": "interface"
+      },
+      {
+        "name": "greet",
+        "tag": "method"
+      },
+      {
+        "name": "count",
+        "tag": "property"
+      },
+      {
+        "name": "compute",
+        "tag": "function"
+      }
+    ],
+    "absent": ["Phantom", "NSObject"]
+  }
+}

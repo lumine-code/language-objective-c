@@ -1,28 +1,5 @@
-(class_interface
-  (identifier) @name) @definition.class
-
-(class_implementation
-  (identifier) @name) @definition.class
-
-(protocol_declaration
-  (identifier) @name) @definition.interface
-
-(method_declaration
-  (identifier) @name) @definition.method
-
-(method_definition
-  (identifier) @name) @definition.method
-
-(property_declaration
-  (struct_declaration
-    (struct_declarator
-      (identifier) @name))) @definition.field
-
-(message_expression
-  receiver: (identifier) @name) @reference.call
-
-(message_expression
-  method: (identifier) @name) @reference.call
-
-(module_import
-  path: (identifier) @name) @reference.module
+; Objective-C and C declarations share objc-tags.scm; these add C++ constructs.
+(class_specifier name: [(type_identifier) (qualified_identifier) (template_type)] @name) @definition.class
+(namespace_definition name: [(namespace_identifier) (nested_namespace_specifier)] @name) @definition.module
+(function_declarator declarator: (field_identifier) @name) @definition.method
+(function_declarator declarator: (qualified_identifier) @name) @definition.function
