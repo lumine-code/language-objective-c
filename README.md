@@ -2,6 +2,8 @@
 
 Objective-C language support.
 
+Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/language-objective-c`).
+
 ## Features
 
 - **Grammars**: provides Tree-sitter grammars built from [tree-sitter-objc](https://github.com/amaanq/tree-sitter-objc), [tree-sitter-objcpp](https://github.com/VladimirMakaev/tree-sitter-objcpp), and [tree-sitter-strings](https://github.com/uber/tree-sitter-strings).
