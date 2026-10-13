@@ -11,6 +11,8 @@ Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/l
 - **Syntax highlighting**: grammar coverage for Objective-C, Objective-C++, and Strings files.
 - **Snippets**: shortcuts for common declarations and control structures.
 
+![OBJC syntax highlighting at the default editor font size.](.github/demo.png)
+
 ## Installation
 
 To install `language-objective-c` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/language-objective-c`.

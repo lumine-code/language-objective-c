@@ -1,0 +1,16 @@
+{
+  "title": "language-objective-c",
+  "description": "OBJC syntax highlighting in the editor.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "3faa8723e1e23da93843e801af85f824254868db",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "OBJC syntax highlighting at the default editor font size.",
+      "width": 1100,
+      "height": 820
+    }
+  ]
+}
