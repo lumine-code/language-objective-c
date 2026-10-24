@@ -11,7 +11,7 @@
   },
   "treeSitter": {
     "parserSource": "github:VladimirMakaev/tree-sitter-objcpp#eeef22e310ea16e2156a398190e7a326341950f8",
-    "wasmBuildTool": "tree-sitter-cli#v0.27.0",
+    "wasmBuildTool": "tree-sitter-cli#v0.27.1",
     "grammar": "objcpp.wasm",
     "highlightsQuery": "objcpp-highlights.scm",
     "tagsQuery": ["objc-tags.scm", "objcpp-tags.scm"]
