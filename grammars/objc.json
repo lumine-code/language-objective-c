@@ -15,6 +15,7 @@
     "grammar": "objc.wasm",
     "tagsQuery": "objc-tags.scm",
     "highlightsQuery": "objc-highlights.scm",
+    "indentsQuery": "objc-indents.scm",
     "localsQuery": "objc-locals.scm",
     "foldsQuery": "objc-folds.scm"
   }
