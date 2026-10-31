@@ -46,11 +46,38 @@ describe("objective-c editing settings", () => {
       "#import <Foundation/Foundation.h>\n",
       "// Header\n@interface Test\n@end",
       "#include <stdint.h>\n@class Test;",
+      "#pragma once\n/* Header */\n#include <stdint.h>\n@class Test;",
+      "/* Header */\n# include <stdint.h>\n// Comment\n@interface Test\n@end",
     ])
       expect(lumine.grammars.selectGrammar("header.h", text).scopeName).toBe("source.objc");
     expect(
       lumine.grammars.selectGrammar("header.h", "#include <vector>\nnamespace example {}\n")
         .scopeName,
     ).toBe("source.cpp");
+  });
+
+  it("does not select Objective-C from markers in comments or quoted header text", () => {
+    for (const text of [
+      "/**\n@class Example\n*/\nint value;",
+      "/*\n#import <Foundation/Foundation.h>\n*/\nint value;",
+      'const char *doc = R"doc(\n@interface Example\n)doc";\nint value;',
+      "/*" + "*".repeat(20000) + "\n@interface Example",
+      "#pragma once\n/* unfinished\n@class Example",
+    ]) {
+      expect(lumine.grammars.selectGrammar("header.h", text).scopeName)
+        .withContext(text.slice(0, 100))
+        .not.toBe("source.objc");
+    }
+  });
+
+  it("honors user header associations ahead of content hints", () => {
+    try {
+      lumine.config.set("core.customFileTypes", { "source.c": ["h"] });
+      expect(lumine.grammars.selectGrammar("header.h", "@interface Example\n@end").scopeName).toBe(
+        "source.c",
+      );
+    } finally {
+      lumine.config.unset("core.customFileTypes");
+    }
   });
 });

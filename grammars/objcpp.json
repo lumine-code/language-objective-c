@@ -4,7 +4,7 @@
   "type": "tree-sitter",
   "parser": "tree-sitter-objcpp",
   "injectionNames": ["objective-c++", "obj-c++", "objc++", "objectivec++", "objcpp"],
-  "contentRegex": "(?:^|\\n)[ \\t]*(?:#[ \\t]*import\\b|@(?:interface|implementation|protocol|property|class|import)\\b)",
+  "contentRegex": "^(?:\\s|//[^\\r\\n]*(?:\\r?\\n|$)|/\\*(?:[^*]|\\*(?!/))*\\*/|#[ \\t]*include\\b[^\\\\\\r\\n]*(?:\\r?\\n|$)|#[ \\t]*pragma[ \\t]+once[ \\t]*(?:\\r?\\n|$))*(?:#[ \\t]*import\\b|@(?:interface|implementation|protocol|property|class|import)\\b)",
   "fileTypes": ["mm"],
   "comments": {
     "start": "// "
