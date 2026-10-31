@@ -4,7 +4,7 @@
   "type": "tree-sitter",
   "parser": "tree-sitter-objc",
   "injectionNames": ["objc", "obj-c", "objective-c", "objectivec"],
-  "contentRegex": "^\\s*(#import|#include|@interface|@implementation|@property)",
+  "contentRegex": "(?:^|\\n)[ \\t]*(?:#[ \\t]*import\\b|@(?:interface|implementation|protocol|property|class|import)\\b)",
   "fileTypes": ["m", "h", "pch", "x", "xm", "xmi"],
   "comments": {
     "start": "// "

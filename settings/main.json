@@ -32,7 +32,21 @@
         "NSMutableDictionary",
         "NSMutableString",
         "NSString"
-      ]
+      ],
+      "commentStart": "// ",
+      "commentDelimiters": {
+        "line": "//",
+        "block": ["/*", "*/"]
+      }
+    }
+  },
+  ".source.strings": {
+    "editor": {
+      "commentStart": "// ",
+      "commentDelimiters": {
+        "line": "//",
+        "block": ["/*", "*/"]
+      }
     }
   }
 }
