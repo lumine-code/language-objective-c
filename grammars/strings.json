@@ -13,6 +13,7 @@
     "wasmBuildTool": "tree-sitter-cli#v0.27.2",
     "grammar": "strings.wasm",
     "highlightsQuery": "strings-highlights.scm",
+    "tagsQuerySupportsLocalPath": true,
     "tagsQuery": "strings-tags.scm"
   }
 }
